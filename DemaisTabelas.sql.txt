@@ -1,0 +1,37 @@
+CREATE TABLE Cpf (
+  id  bigint generated always as identity primary key,
+  Cpfnum varchar(11) NOT NULL
+);
+
+CREATE TABLE Disciplinas (
+  id bigint generated always as identity primary key,
+  nome text NOT NULL
+);
+
+CREATE TABLE Turmas (
+  id bigint generated always as identity primary key,
+  nome text NOT NULL
+);
+
+CREATE TABLE AccResponAGV (
+  id bigint generated always as identity primary key,
+  nome text NOT NULL,
+  phonenum text NOT NULL,
+  gmail text NOT NULL
+);
+
+CREATE TABLE Professores (
+  id bigint generated always AS identity PRIMARY key,
+  nome text NOT NULL,
+  Disciplina_id bigint,
+  Turma_id bigint,
+
+  CONSTRAINT fk_Disciplina
+  FOREIGN key (Disciplina_id)
+  REFERENCES Disciplinas(id),
+
+  CONSTRAINT fk_Turma
+  FOREIGN key (Turma_id)
+  REFERENCES Turmas(id)
+);
+

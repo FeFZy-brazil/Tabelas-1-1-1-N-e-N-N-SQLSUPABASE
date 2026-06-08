@@ -1,0 +1,4 @@
+CREATE TABLE AccAlunosAGV_Professores (
+  aluno_id bigint REFERENCES AccAlunosAGV(id),
+  professor_id bigint REFERENCES Professores(id)
+); -- Relação N:N (tabela alunos x professores)

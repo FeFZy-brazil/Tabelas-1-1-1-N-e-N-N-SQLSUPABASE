@@ -1,0 +1,21 @@
+CREATE TABLE AccALunosAGV (
+  id bigint generated always as identity primary key,
+  nome text not null,
+  phonenum text not null,
+  gmail text not null, 
+  Respon_id bigint not null,
+  Turma_id bigint not null,
+  Cpfnum_id bigint not null,
+
+  CONSTRAINT fk_Respon
+  FOREIGN key (Respon_id)
+  REFERENCES AccResponAGV(id),
+
+  CONSTRAINT fk_Turma
+  FOREIGN key (Turma_id)
+  REFERENCES Turmas(id),
+
+  CONSTRAINT fk_Cpfnum
+  FOREIGN key (Cpfnum_id)
+  REFERENCES Cpf(id)
+)
